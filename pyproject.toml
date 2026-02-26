@@ -4,9 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "winstack-integrity"
-version = "0.1.0"
-description = "Deterministic file integrity CLI"
+version = "0.2.0"
+description = "Dual-system: file integrity (Winstack) + governance gate (Truthlock)"
 requires-python = ">=3.9"
+dependencies = []
 
 [project.scripts]
 winstack = "winstack_integrity.cli:main"
+truthlock = "truthlock.cli:main"
+
+[tool.setuptools]
+packages = ["winstack_integrity", "truthlock"]
