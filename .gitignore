@@ -19,3 +19,11 @@ demo.proof.json
 *.egg-info/
 __pycache__/
 .DS_Store
+
+# ignore build + demo artifacts
+*.egg-info/
+demo.txt
+demo.proof.json
+.truthlock/
+__pycache__/
+.DS_Store
