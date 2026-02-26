@@ -27,3 +27,15 @@ demo.proof.json
 .truthlock/
 __pycache__/
 .DS_Store
+
+# artifacts
+*.egg-info/
+.truthlock/
+*.proof.json
+*.decision.json
+demo.txt
+bad.txt
+prompt.txt
+output.txt
+__pycache__/
+.DS_Store
