@@ -1,2 +1,12 @@
 .venv/
 __pycache__/
+
+# build/artifacts
+winstack_integrity.egg-info/
+.truthlock/
+demo.txt
+demo.proof.json
+*.proof.json
+*.txt
+__pycache__/
+.DS_Store

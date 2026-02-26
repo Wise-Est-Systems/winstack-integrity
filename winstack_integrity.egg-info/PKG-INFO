@@ -1,5 +1,0 @@
-Metadata-Version: 2.4
-Name: winstack-integrity
-Version: 0.1.0
-Summary: Deterministic file integrity CLI
-Requires-Python: >=3.9

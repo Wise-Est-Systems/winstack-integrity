@@ -1,0 +1,9 @@
+{
+  "created_utc": 1772070899,
+  "decision": "ALLOW",
+  "reason": "No blocking signals detected.",
+  "schema": "truthlock.decision.v1",
+  "signals": [],
+  "tool": "truthlock",
+  "version": "0.2.0"
+}

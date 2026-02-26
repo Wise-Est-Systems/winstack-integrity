@@ -1,0 +1,25 @@
+{
+  "created_utc": 1772070907,
+  "decision": "HALT",
+  "reason": "Fabrication pressure detected.",
+  "schema": "truthlock.decision.v1",
+  "signals": [
+    {
+      "code": "FABRICATION_PRESSURE",
+      "pattern": "\\bmake up\\b",
+      "severity": "HIGH"
+    },
+    {
+      "code": "FABRICATION_PRESSURE",
+      "pattern": "\\bpretend\\b",
+      "severity": "HIGH"
+    },
+    {
+      "code": "UNSOURCED_FACT",
+      "line": 1,
+      "severity": "HIGH"
+    }
+  ],
+  "tool": "truthlock",
+  "version": "0.2.0"
+}
