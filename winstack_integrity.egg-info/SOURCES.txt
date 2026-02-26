@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+winstack_integrity/__init__.py
+winstack_integrity/__main__.py
+winstack_integrity/cli.py
+winstack_integrity/core.py
+winstack_integrity.egg-info/PKG-INFO
+winstack_integrity.egg-info/SOURCES.txt
+winstack_integrity.egg-info/dependency_links.txt
+winstack_integrity.egg-info/entry_points.txt
+winstack_integrity.egg-info/top_level.txt
