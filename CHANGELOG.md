@@ -1,6 +1,6 @@
 # Changelog
 
 ## 0.2.0
-- Winstack: file integrity CLI (VERIFIED/TAMPERED)
-- Truthlock: governance gate (ALLOW/FLAG/HALT)
-- truthlock run: gate -> execute -> seal -> artifacts
+- Winstack integrity: VERIFIED / TAMPERED
+- Truthlock governance: ALLOW / FLAG / HALT
+- Governed wrapper: truthlock run (gate -> execute -> seal -> artifacts)

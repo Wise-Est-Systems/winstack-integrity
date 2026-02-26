@@ -10,3 +10,12 @@ demo.proof.json
 *.txt
 __pycache__/
 .DS_Store
+
+# build/artifacts
+winstack_integrity.egg-info/
+.truthlock/
+demo.txt
+demo.proof.json
+*.egg-info/
+__pycache__/
+.DS_Store
