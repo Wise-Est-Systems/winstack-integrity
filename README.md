@@ -1,75 +1,130 @@
-Winstack Integrity
+# Winstack Integrity + Truthlock
 
-Winstack Integrity is a deterministic CLI tool that answers one question:
+A dual-system verification pipeline for deterministic integrity and governed execution.
 
-Did this file change?
+This repository provides two tightly scoped components:
 
-It generates a SHA-256 proof for any file and verifies that file against the recorded proof at any time.
+---
 
-Output is binary and final:
-	•	VERIFIED — file matches the recorded proof
-	•	TAMPERED — file does not match the recorded proof
+## 1. Winstack (Integrity Layer)
 
-No external services.
-No trust in platforms.
-No interpretation.
+A local-first CLI that answers one question:
 
-Just math.
+**Did this file change?**
 
-⸻
+Winstack generates a SHA-256 proof object for any file and later verifies that file against the recorded proof.
 
-Why This Exists
+Output is binary and deterministic:
 
-Digital files can be modified without obvious signs of change.
+- VERIFIED — file matches proof  
+- TAMPERED — file does not match proof  
 
-Winstack provides a simple, local-first way to:
-	•	Fingerprint a file
-	•	Generate a portable proof object
-	•	Verify integrity later
-	•	Script verification in CI or automation pipelines
+No network dependency.  
+No external trust.  
+Only byte-level verification.
 
-Installation
+---
 
+## 2. Truthlock (Governance Layer)
+
+A deterministic execution gate for text-based workflows.
+
+Truthlock evaluates input before execution and returns one of:
+
+- ALLOW — safe to proceed  
+- FLAG — governance signals detected  
+- HALT — execution blocked  
+
+Signals include:
+- Fabrication pressure (e.g. "make up", "pretend", "fake sources")
+- Unsourced factual assertions (FACT: lines without [source: ...])
+- High-risk domains (medical, legal, finance)
+
+Truthlock produces structured decision artifacts and supports pre-execution and post-execution sealing.
+
+---
+
+## Combined Model
+
+Together, Winstack + Truthlock form a dual verification system:
+
+1. Integrity Gate — ensure inputs have not changed  
+2. Governance Gate — ensure execution meets deterministic policy  
+3. Output Seal — attach proof artifacts for auditability  
+
+This enables:
+
+- Tamper-evident pipelines  
+- Scriptable CI verification  
+- Governed AI execution workflows  
+- Local-first, reproducible audits  
+
+---
+
+## Installation (Development)
+
+python3 -m venv .venv  
+source .venv/bin/activate  
 pip install -e .
 
-Usage
+---
 
-Create a proof
+## Winstack Usage
 
-winstack prove <file> --out proof.json
-This generates a SHA-256 proof and saves it to proof.json.
+Create proof:
 
-Verify a file
-winstack verify <file> --proof proof.json
+winstack prove file.txt --out proof.json
 
-Returns:
-VERIFIED
-or
-TAMPERED
+Verify file:
+
+winstack verify file.txt --proof proof.json
 
 Exit codes:
-	•	0 = VERIFIED
-	•	2 = TAMPERED
+0 → VERIFIED  
+2 → TAMPERED  
 
-Design Principles
-	•	Deterministic output
-	•	Local-first execution
-	•	Portable proof objects
-	•	Scriptable CLI behavior
-	•	Minimal surface area
+---
 
-⸻
+## Truthlock Usage
 
-Scope
+Pre-execution gate:
 
-Winstack Integrity v0.1.0 does one thing only:
+truthlock gate --in prompt.txt --out decision.json --proof-out input.proof.json
 
-Verify file integrity using SHA-256.
+Run governed pipeline:
 
-No feature creep.
-No network dependency.
-No storage layer.
+truthlock run --in prompt.txt --out output.txt
 
+Seal output:
 
+truthlock seal --file output.txt --out output.proof.json
 
+Exit codes:
+0 → ALLOW  
+3 → FLAG  
+4 → HALT  
 
+---
+
+## Design Principles
+
+- Deterministic outputs  
+- Local-first execution  
+- Portable proof artifacts  
+- Minimal surface area  
+- No hidden state  
+- Scriptable behavior  
+
+---
+
+## Scope
+
+This is infrastructure.
+
+It does not:
+- Train models  
+- Modify weights  
+- Provide hosted services  
+- Store remote data  
+
+It provides deterministic verification and governance primitives.
